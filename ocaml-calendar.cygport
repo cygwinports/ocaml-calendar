@@ -1,0 +1,21 @@
+inherit ocaml
+
+NAME="ocaml-calendar"
+VERSION=2.04
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="OCaml date/time library"
+DESCRIPTION="The OCaml Calendar library provides a set of operations over dates
+and times."
+HOMEPAGE="http://calendar.forge.ocamlcore.org/"
+SRC_URI="https://forge.ocamlcore.org/frs/download.php/1481/calendar-${VERSION}.tar.gz"
+SRC_DIR="calendar-${VERSION}"
+
+src_compile() {
+	cd ${S}
+	cygautoreconf
+	lndirs
+	cd ${B}
+	cygconf
+	cygmake
+}
